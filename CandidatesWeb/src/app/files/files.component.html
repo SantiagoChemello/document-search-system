@@ -1,0 +1,41 @@
+<div *ngIf="loading">Loading...</div>
+
+<input type="text"
+        class="form"
+        placeholder=" Search"
+        #txtSearch
+        (keyup)="SearchContent(txtSearch.value)" />
+<div *ngIf="!loading">
+  <table>
+    <thead>
+      <tr id="tr">
+        <th>Id</th>
+        <th>Filename</th>
+        <th>Type</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of files | filter:page:search">
+        <td>{{ file.id }}</td>
+        <td>{{ file.filename }}</td>
+        <td>{{ file.type }}</td>
+        <td>
+            <app-expandtext [text]="file.content" [limit]="30" style="cursor: pointer;"></app-expandtext>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="tableBtn" id="btnBack"
+          (click)="prevPage()">
+    Back
+  </button>
+  &nbsp;
+  <button class="tableBtn" id="btnNext"
+          (click)="nextPage()"
+          [disabled]="(files | filter:page:search).length === 0">
+    Next
+  </button>
+
+</div>
