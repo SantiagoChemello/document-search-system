@@ -1,6 +1,6 @@
 ## Overview
 
-DocumentIngester is a fullstack application that allows users to upload documents (PDF/DOCX), extract their content, and perform keyword-based searches through a GraphQL API.
+Document-search-system is a fullstack application that allows users to upload documents (PDF/DOCX), extract their content, and perform keyword-based searches through a GraphQL API.
 
 The project is composed of:
 - DocumentIngester: A Spring Boot backend with GraphQL
